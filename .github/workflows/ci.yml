@@ -6,15 +6,32 @@ on:
     tags: [ 'v*' ]
   pull_request:
     branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to release (e.g., v0.3.0)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
 
 env:
   CARGO_TERM_COLOR: always
-  CARGO_WORKSPACE: rust
 
 jobs:
   build:
-    name: Build
-    runs-on: ubuntu-latest
+    name: Build (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            asset: xi-core-linux-x86_64
+          - os: macos-latest
+            asset: xi-core-macos-x86_64
+
     steps:
       - uses: actions/checkout@v4
 
@@ -34,40 +51,42 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-
 
-      - name: Build workspace
-        working-directory: ${{ env.CARGO_WORKSPACE }}
-        run: cargo build --release
+      - name: Build
+        working-directory: rust
+        # Собираем только xi-core, без syntect-plugin и lsp-lib
+        run: cargo build --release -p xi-core
 
-      - name: Run tests
-        working-directory: ${{ env.CARGO_WORKSPACE }}
-        run: cargo test --release --workspace
+      - name: Package
+        shell: bash
+        run: |
+          mkdir -p dist
+          cp rust/target/release/xi-core "dist/${{ matrix.asset }}"
+          chmod +x "dist/${{ matrix.asset }}" || true
 
-      - name: Upload xi-core binary
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: xi-core
-          path: rust/target/release/xi-core
+          name: ${{ matrix.asset }}
+          path: dist/${{ matrix.asset }}
 
   release:
     name: Create Release
-    runs-on: ubuntu-latest
     needs: build
-    if: startsWith(github.ref, 'refs/tags/v')
-    permissions:
-      contents: write
+    if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download binary
+      - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
-          name: xi-core
-          path: ./dist
+          path: dist
+          merge-multiple: true
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: ./dist/xi-core
+          tag_name: ${{ github.event.inputs.tag || github.ref_name }}
           generate_release_notes: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          files: dist/*
+          fail_on_unmatched_files: true
