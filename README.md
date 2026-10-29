@@ -1,7 +1,11 @@
 # Xi editor
 
-***Maintenance status:*** *The xi-editor project is currently discontinued. Although we will happily accept bug fixes, no new features are currently planned. You may be interested in [the Lapce editor](https://github.com/lapce/lapce), which can be considered a spiritual successor to the xi-editor.
-— The Editors
+> **Note:** This is a fork maintained by [LOC](https://github.com/loc-oss). 
+> The original xi-editor project is currently discontinued. We are actively modernizing the core and building a new native frontend for it, called **Lumen**. 
+> If you are looking for the original project, please refer to the historical documentation below.
+
+***Maintenance status (Historical):*** *The xi-editor project is currently discontinued. Although we will happily accept bug fixes, no new features are currently planned. You may be interested in [the Lapce editor](https://github.com/lapce/lapce), which can be considered a spiritual successor to the xi-editor.
+— The Editors*
 
 ***Note:*** *This repo contains only the editor core, which is not usable on its own. For editors based on it, check out the list in [Frontends](#frontends).*
 
@@ -25,19 +29,16 @@ Goals include:
 * ***Developer friendliness***. It should be easy to customize xi editor, whether
   by adding plug-ins or hacking on the core.
 
-**Learn more** with the creator of Xi, Raph Levien, in this [Recurse Center Localhost talk](https://www.recurse.com/events/localhost-raph-levien
-).
+**Learn more** with the creator of Xi, Raph Levien, in this [Recurse Center Localhost talk](https://www.recurse.com/events/localhost-raph-levien).
 
 Screenshot:
 
 ![xi-mac screenshot](/docs/docs/img/xi-mac-screenshot.png?raw=true)
 
-
 ## Getting started
 
 This repository is the core only. You'll also need a front-end, from the list
 below.
-
 
 ### Building the core
 
@@ -50,7 +51,6 @@ To build the xi-editor core from the root directory of this repo:
 > cd rust
 > cargo build
 ```
-
 
 ## Frontends
 
@@ -88,7 +88,6 @@ There are notes (I wouldn’t call it
 documentation at this point) on the protocol at
 [frontend.md](https://xi-editor.github.io/xi-editor/docs/frontend-protocol.html). If you're working on a front-end, feel free to
 send a PR to add it to the above list.
-
 
 ## Design decisions
 
@@ -135,7 +134,6 @@ contribute to the above goals:
   languages, and there are plenty of the libraries available for the other
   ones.
 
-
 ## Current status
 
 This is still a project in its early stages. The Mac build has basic editing
@@ -144,18 +142,15 @@ is still missing essentials such as auto-indent. At the moment, it’s expected
 that its main community will be developers interested in hacking on a text
 editor.
 
-
 ## Authors
 
 The xi-editor project was started by Raph Levien but has since received
 contributions from a number of other people. See the [AUTHORS](AUTHORS)
 file for details.
 
-
 ## License
 
 This project is licensed under the Apache 2 [license](LICENSE).
-
 
 ## Contributions
 
