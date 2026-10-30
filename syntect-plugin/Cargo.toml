@@ -33,4 +33,5 @@ path = "../core-lib"
 path = "../rope"
 
 [dependencies.xi-trace]
-path = "../trace"
+git = "https://github.com/loc-oss/xi-trace"
+branch = "main"

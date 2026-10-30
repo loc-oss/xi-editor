@@ -20,10 +20,12 @@ memchr = "2.0"
 log = "0.4.3"
 
 [dependencies.xi-trace]
-path = "../trace"
+git = "https://github.com/loc-oss/xi-trace"
+branch = "main"
 
 [dependencies.xi-rpc]
-path = "../rpc"
+git = "https://github.com/loc-oss/xi-rpc"
+branch = "main"
 
 [dependencies.xi-core-lib]
 path = "../core-lib"

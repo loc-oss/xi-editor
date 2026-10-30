@@ -24,7 +24,8 @@ dirs = "2.0"
 path = "core-lib"
 
 [dependencies.xi-rpc]
-path = "rpc"
+git = "https://github.com/loc-oss/xi-rpc"
+branch = "main"
 
 [workspace]
 members = [
@@ -33,10 +34,8 @@ members = [
   "lsp-lib",
   "plugin-lib",
   "rope",
-  "rpc",
   "sample-plugin",
   "syntect-plugin",
-  "trace",
   "unicode",
 ]
 

@@ -28,7 +28,9 @@ path = "../core-lib"
 path = "../rope"
 
 [dependencies.xi-rpc]
-path = "../rpc"
+git = "https://github.com/loc-oss/xi-rpc"
+branch = "main"
 
 [dependencies.xi-trace]
-path = "../trace"
+git = "https://github.com/loc-oss/xi-trace"
+branch = "main"

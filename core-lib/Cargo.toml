@@ -22,29 +22,18 @@ regex = "1.0"
 memchr = "2.0.1"
 crossbeam-channel = "0.3"
 
-xi-trace = { path = "../trace", version = "0.2.0" }
+xi-trace = { git = "https://github.com/loc-oss/xi-trace", branch = "main" }
+xi-rpc = { git = "https://github.com/loc-oss/xi-rpc", branch = "main" }
 xi-rope = { path = "../rope", version = "0.3", features = ["serde"] }
 xi-unicode = { path = "../unicode", version = "0.3.0" }
-xi-rpc = { path = "../rpc", version = "0.3.0" }
 
 [dependencies.syntect]
 version = "3.2"
 default-features = false
 features = ["assets","dump-load-rs","dump-create"]
 
-[target."cfg(target_os = \"fuchsia\")".dependencies]
-sha2 = "0.8"
-# Note: these can be available if needed, but the idea is that the
-# platform-specific code moves entirely to the binary wrapper that
-# includes xi-core-lib.
-#fuchsia-zircon = "0.3"
-#fuchsia-zircon-sys = "0.3"
-#mxruntime = "0.1.0"
-#fidl = "0.1.0"
-
 [dev-dependencies]
 tempdir = "^0.3.4"
 
 [features]
-ledger = []
 default = ["notify"]
