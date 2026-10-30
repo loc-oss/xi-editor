@@ -4,8 +4,14 @@ on:
   push:
     branches: [ main, master ]
     tags: [ 'v*' ]
+    paths:
+      - 'rust/**'
+      - '.github/workflows/ci.yml'
   pull_request:
     branches: [ main, master ]
+    paths:
+      - 'rust/**'
+      - '.github/workflows/ci.yml'
   workflow_dispatch:
     inputs:
       tag:
