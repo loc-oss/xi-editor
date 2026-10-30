@@ -2,12 +2,15 @@
 name = "xi-core"
 version = "0.4.0"
 license = "Apache-2.0"
-authors = ["Raph Levien <raph@google.com>"]
-description = "Main process for xi-core, based on json-rpc"
+authors = [
+    "Raph Levien <raph@google.com>",
+    "LOC-OSS Community"
+]
+description = "The core backend for xi-editor, maintained by LOC"
 categories = ["text-editors"]
-repository = "https://github.com/xi-editor/xi-editor"
+repository = "https://github.com/loc-oss/xi-editor"
 edition = '2018'
-rust = "1.40"
+rust-version = "1.40"
 
 [dependencies]
 serde = "1.0"

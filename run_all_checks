@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+echo "Checking required components..."
+if !(cargo clippy --version > /dev/null 2>&1); then
+    printf 'Checks require clippy; try `rustup component add clippy`.\n'
+    exit 1
+fi
+
+if !(cargo fmt --version > /dev/null 2>&1); then
+    printf 'Checks require rustfmt; try `rustup component add rustfmt`.\n'
+    exit 1
+fi
+
+printf 'Running rustfmt:\n'
+cargo fmt --all -- --check
+printf 'Rustfmt check passed.\n\n'
+
+printf 'Running clippy:\n'
+cargo clippy --all-targets --all-features -- -D warnings
+printf 'Clippy check passed.\n\n'
+
+printf 'Checking compiler warnings:\n'
+RUSTFLAGS="-D warnings" cargo check --all-targets
+printf 'Check passed!\n\n'
+
+printf 'Running tests:\n'
+cargo test --all
+printf 'Tests passed!\n\n'
+
+# Note: Benchmarks are disabled by default because they require nightly Rust
+# and take a long time. Uncomment if needed.
+# printf 'Running benchmarks ("rustup run nightly cargo bench --all"):\n'
+# rustup run nightly cargo bench --all
+
+printf 'All checks passed successfully!\n'

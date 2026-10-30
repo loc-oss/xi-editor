@@ -2,16 +2,22 @@ name: CI
 
 on:
   push:
-    branches: [ main, master ]
-    tags: [ 'v*' ]
-    paths:
-      - 'rust/**'
-      - '.github/workflows/ci.yml'
+    branches: [main, master]
+    tags: ['v*']
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+      - 'NOTICE'
+      - 'AUTHORS'
+      - '.github/**'
   pull_request:
-    branches: [ main, master ]
-    paths:
-      - 'rust/**'
-      - '.github/workflows/ci.yml'
+    branches: [main, master]
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+      - 'NOTICE'
+      - 'AUTHORS'
+      - '.github/**'
   workflow_dispatch:
     inputs:
       tag:
@@ -52,20 +58,19 @@ jobs:
             ~/.cargo/registry/index/
             ~/.cargo/registry/cache/
             ~/.cargo/git/db/
-            rust/target/
-          key: ${{ runner.os }}-cargo-${{ hashFiles('rust/Cargo.lock') }}
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('Cargo.lock') }}
           restore-keys: |
             ${{ runner.os }}-cargo-
 
       - name: Build
-        working-directory: rust
         run: cargo build --release -p xi-core
 
       - name: Package
         shell: bash
         run: |
           mkdir -p dist
-          cp rust/target/release/xi-core "dist/${{ matrix.asset }}"
+          cp target/release/xi-core "dist/${{ matrix.asset }}"
           chmod +x "dist/${{ matrix.asset }}" || true
 
       - name: Upload artifact
