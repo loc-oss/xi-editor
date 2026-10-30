@@ -1,7 +1,7 @@
 # Contributing
 
 This project is maintained by [LOC](https://github.com/loc-oss) and follows our
-[Code of Conduct](CODE_OF_CONDUCT.md).
+[Code of Conduct](../CODE_OF_CONDUCT.md).
 
 ## Opening issues
 
