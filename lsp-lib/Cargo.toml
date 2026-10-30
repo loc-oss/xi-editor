@@ -2,7 +2,7 @@
 name = "xi-lsp-lib"
 version = "0.1.0"
 license = "Apache-2.0"
-repository = "https://github.com/google/xi-editor"
+repository = "https://github.com/loc-oss/xi-editor"
 description = "The base library for implementing LSP Plugins for Xi"
 authors = ["betterclever <paliwal.pranjal83@gmail.com>"]
 edition = '2018'

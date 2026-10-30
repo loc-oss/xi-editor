@@ -3,7 +3,7 @@ name = "xi-sample-plugin"
 version = "0.0.0"
 license = "Apache-2.0"
 authors = ["Colin Rofls <colin@cmyr.net>"]
-repository = "https://github.com/google/xi-editor"
+repository = "https://github.com/loc-oss/xi-editor"
 description = "An example plugin, for testing and illustration"
 edition = '2018'
 

@@ -2,7 +2,10 @@
 name = "xi-unicode"
 version = "0.3.0"
 license = "Apache-2.0"
-authors = ["Raph Levien <raph.levien@gmail.com>"]
-repository = "https://github.com/google/xi-editor"
+authors = [
+    "Raph Levien <raph.levien@gmail.com>",
+    "LOC-OSS Community"
+]
+repository = "https://github.com/loc-oss/xi-editor"
 description = "Unicode utilities useful for text editing, including a line breaking iterator."
 edition = '2018'

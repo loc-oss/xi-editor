@@ -1,9 +1,12 @@
 [package]
-authors = ["Raph Levien <raph@google.com>"]
+authors = [
+    "Raph Levien <raph@google.com>",
+    "LOC-OSS Community"
+]
 description = "A generic rope data structure built on top of B-Trees."
 license = "Apache-2.0"
 name = "xi-rope"
-repository = "https://github.com/google/xi-editor"
+repository = "https://github.com/loc-oss/xi-editor"
 version = "0.3.0"
 edition = '2018'
 
