@@ -22,7 +22,7 @@ path = "core-lib"
 
 [dependencies.xi-rpc]
 git = "https://github.com/loc-oss/xi-rpc"
-tag = "v0.4.0"
+tag = "v0.4.1"
 
 [workspace]
 members = [

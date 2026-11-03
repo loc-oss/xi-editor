@@ -19,8 +19,8 @@ regex = "1.0"
 memchr = "2.0.1"
 crossbeam-channel = "0.3"
 
-xi-trace = { git = "https://github.com/loc-oss/xi-trace", tag = "v0.3.1" }
-xi-rpc = { git = "https://github.com/loc-oss/xi-rpc", tag = "v0.4.0" }
+xi-trace = { git = "https://github.com/loc-oss/xi-trace", tag = "v0.3.2" }
+xi-rpc = { git = "https://github.com/loc-oss/xi-rpc", tag = "v0.4.1" }
 xi-rope = { path = "../rope", version = "0.3", features = ["serde"] }
 xi-unicode = { path = "../unicode", version = "0.3.0" }
 

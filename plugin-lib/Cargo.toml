@@ -18,11 +18,11 @@ log = "0.4.3"
 
 [dependencies.xi-trace]
 git = "https://github.com/loc-oss/xi-trace"
-tag = "v0.3.1"
+tag = "v0.3.2"
 
 [dependencies.xi-rpc]
 git = "https://github.com/loc-oss/xi-rpc"
-tag = "v0.4.0"
+tag = "v0.4.1"
 
 [dependencies.xi-core-lib]
 path = "../core-lib"

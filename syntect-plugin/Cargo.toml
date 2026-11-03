@@ -38,4 +38,4 @@ path = "../rope"
 
 [dependencies.xi-trace]
 git = "https://github.com/loc-oss/xi-trace"
-tag = "v0.3.1"
+tag = "v0.3.2"
