@@ -1,7 +1,9 @@
 # Metrics and Boundaries
+
 The xi-rope code tries to capture general underlying mathematical concepts without being overly abstract. This can be confusing (especially to newcomers) and there are definitely ways in which the current code doesn't live up to this ideal.
 
 ## Monoid homomorphisms
+
 A rope is a data structure for representing strings, so that many operations (especially editing) are efficient even as the string grows. Xi-rope implements strings, but also generalizes to other structures.
 
 The mathematical generalization of a string is a monoid. The operation is string concatenation, and the identity element is the empty string.
@@ -11,6 +13,7 @@ A string has a length. The empty string has zero length, and the length of the c
 The concept of monoid homomorphism doesn't cover everything we care about regarding strings. In particular, it's missing any way to compute substrings, and we care about that deeply.
 
 ## Metrics
+
 A metric is a monoid homomorphism ranging over nonnegative integers, and also satisfying a form of the triangle inequality. If we write the monoid operation as ⊕, then this is simply a ⊕ b ≤ a + b. String length is an important metric, but there are other interesting examples.
 
 A metric is additive if its operation is addition. Any additive metric trivially satisfies the triangle inequality.
@@ -28,6 +31,7 @@ Another important non-atomic metric is the count of newline characters.
 (Note: probably clearer to just motivate the newline metric here and go into UTF-8 below)
 
 ## Split
+
 A defining characteristic of strings is that they can be split, which is something of an inverse of the monoid operator. To generalize the concept, we'll need an atomic metric m() that is also additive (the monoid operator is addition). The split function can be defined as:
 
 split(a ⊕ b, m(a)) = (a, b)
@@ -37,6 +41,7 @@ split(a ⊕ b, m(a)) = (a, b)
 From split we easily get substring, and also all the interesting editing operations.
 
 ## Base units
+
 The Tree struct in xi-rope models a general monoid homomorphism, plus an additive atomic metric. This is known as the base metric, and measures base units. The base units often correspond to bytes in the string representation, but needn't. In any case, the measure of a Tree in base units is referred to as its len.
 
 Many operations, including substring, refer to a location within the structure in base units. The substring operation is implemented as the push_maybe_split method on Leaf, and the indices given as arguments are base units.
@@ -44,6 +49,7 @@ Many operations, including substring, refer to a location within the structure i
 Each valid location in a string, other than 0, has a previous location, and each other than its len has a next location, all measured in base units. Taking next then previous lands you in the same location, and vice versa. Take as a concrete example "\u{00A1}!" represented as the UTF-8 byte sequence [0xC2, 0x81, 0x21]. The next location after 0 is 2, and the next location after 2 is 3. The only valid locations in this string are 0, 2, and 3.
 
 ## Boundaries
+
 In text editing, we are very often concerned with finding boundaries in the text, for example those induced by newline characters. Such boundaries can be defined in terms of a metric, and here we'll explore in greater detail.
 
 For full generality, we need both the concept of leading and trailing boundaries.
@@ -63,4 +69,3 @@ Here is an example where both leading and trailing boundaries are useful from th
 (Edit on further thinking: the definitions above will support fast scanning for large contiguous zero measure (fast path) ranges, but not for large contiguous nonzero measure ranges. I think that's ok, but needs to be clarified. If you're scanning forward, then only the leading edge is useful.)
 
 There current code needs to be fixed to support this. Probably the more systematic would be to explicitly request leading or trailing edge (likely by providing an additional explicit argument to the is_boundary, next, and prev methods of Cursor). Another approach is to bind the preference for leading or trailing boundary into the metric (this is closest to the way the code is currently structured), then require two separate instances of Metric to support the fast-path use case above.
-

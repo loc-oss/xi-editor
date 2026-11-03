@@ -2,10 +2,7 @@
 name = "xi-core"
 version = "0.4.0"
 license = "Apache-2.0"
-authors = [
-    "Raph Levien <raph@google.com>",
-    "LOC-OSS Community"
-]
+authors = ["Raph Levien <raph@google.com>", "LOC-OSS Community"]
 description = "The core backend for xi-editor, maintained by LOC"
 categories = ["text-editors"]
 repository = "https://github.com/loc-oss/xi-editor"
@@ -25,7 +22,7 @@ path = "core-lib"
 
 [dependencies.xi-rpc]
 git = "https://github.com/loc-oss/xi-rpc"
-branch = "main"
+tag = "v0.4.0"
 
 [workspace]
 members = [
@@ -41,5 +38,5 @@ members = [
 
 # Avoid libllvm/libclang dep. See https://github.com/rust-onig/rust-onig/pull/108
 [patch.crates-io]
-onig = { git="https://github.com/kornelski/rust-onig", branch="bindgen" }
-onig_sys = { git="https://github.com/kornelski/rust-onig", branch="bindgen" }
+onig = { git = "https://github.com/kornelski/rust-onig", branch = "bindgen" }
+onig_sys = { git = "https://github.com/kornelski/rust-onig", branch = "bindgen" }

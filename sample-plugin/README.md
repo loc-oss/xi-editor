@@ -17,6 +17,3 @@ On MacOS, by default, $XI_CONFIG_DIR is located at ~/Library/Application Support
 Additionally, the compiled binary should be placed in a `bin/` subdir of the
 directory containing the manifest. (This is the default; the location can be
 changed in the manifest.)
-
-
-

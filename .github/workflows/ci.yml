@@ -3,25 +3,25 @@ name: CI
 on:
   push:
     branches: [main, master]
-    tags: ['v*']
+    tags: ["v*"]
     paths-ignore:
-      - '**.md'
-      - 'LICENSE'
-      - 'NOTICE'
-      - 'AUTHORS'
-      - '.github/**'
+      - "**.md"
+      - "LICENSE"
+      - "NOTICE"
+      - "AUTHORS"
+      - ".github/**"
   pull_request:
     branches: [main, master]
     paths-ignore:
-      - '**.md'
-      - 'LICENSE'
-      - 'NOTICE'
-      - 'AUTHORS'
-      - '.github/**'
+      - "**.md"
+      - "LICENSE"
+      - "NOTICE"
+      - "AUTHORS"
+      - ".github/**"
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Tag to release (e.g., v0.3.0)'
+        description: "Tag to release (e.g., v0.3.0)"
         required: true
         type: string
 

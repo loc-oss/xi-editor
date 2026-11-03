@@ -2,10 +2,7 @@
 name = "xi-syntect-plugin"
 version = "0.0.0"
 license = "Apache-2.0"
-authors = [
-    "Raph Levien <raph@google.com>",
-    "LOC-OSS Community"
-]
+authors = ["Raph Levien <raph@google.com>", "LOC-OSS Community"]
 repository = "https://github.com/loc-oss/xi-editor"
 description = "A syntax highlighting plugin based on syntect."
 edition = '2018'
@@ -21,7 +18,14 @@ toml = "0.5"
 [dependencies.syntect]
 version = "3.2"
 default-features = false
-features = ["parsing", "yaml-load", "assets","dump-load-rs","dump-create", "metadata"]
+features = [
+    "parsing",
+    "yaml-load",
+    "assets",
+    "dump-load-rs",
+    "dump-create",
+    "metadata",
+]
 
 [dependencies.xi-plugin-lib]
 path = "../plugin-lib"
@@ -34,4 +38,4 @@ path = "../rope"
 
 [dependencies.xi-trace]
 git = "https://github.com/loc-oss/xi-trace"
-branch = "main"
+tag = "v0.3.1"

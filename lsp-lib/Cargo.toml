@@ -29,8 +29,8 @@ path = "../rope"
 
 [dependencies.xi-rpc]
 git = "https://github.com/loc-oss/xi-rpc"
-branch = "main"
+tag = "v0.4.0"
 
 [dependencies.xi-trace]
 git = "https://github.com/loc-oss/xi-trace"
-branch = "main"
+tag = "v0.3.1"

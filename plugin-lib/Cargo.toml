@@ -2,10 +2,7 @@
 name = "xi-plugin-lib"
 version = "0.1.0"
 license = "Apache-2.0"
-authors = [
-    "Raph Levien <raph@google.com>",
-    "LOC-OSS Community"
-]
+authors = ["Raph Levien <raph@google.com>", "LOC-OSS Community"]
 repository = "https://github.com/loc-oss/xi-editor"
 description = "The library base for implementing xi-editor plugins."
 edition = '2018'
@@ -21,11 +18,11 @@ log = "0.4.3"
 
 [dependencies.xi-trace]
 git = "https://github.com/loc-oss/xi-trace"
-branch = "main"
+tag = "v0.3.1"
 
 [dependencies.xi-rpc]
 git = "https://github.com/loc-oss/xi-rpc"
-branch = "main"
+tag = "v0.4.0"
 
 [dependencies.xi-core-lib]
 path = "../core-lib"

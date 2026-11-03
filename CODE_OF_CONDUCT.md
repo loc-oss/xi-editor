@@ -8,30 +8,30 @@ religion, nationality, or other similar characteristic.
 
 ## Expected behavior
 
-* Be kind and courteous. There is no need to be mean or rude.
-* Respect that people have differences of opinion and that every design or
+- Be kind and courteous. There is no need to be mean or rude.
+- Respect that people have differences of opinion and that every design or
   implementation choice carries a trade-off and numerous costs. There is
   seldom a right answer.
-* Keep unstructured critique to a minimum. If you have solid ideas you want to
+- Keep unstructured critique to a minimum. If you have solid ideas you want to
   experiment with, make a fork and see how it works.
-* Avoid flirting with offensive or sensitive issues, particularly if they are
+- Avoid flirting with offensive or sensitive issues, particularly if they are
   off-topic. This all too often leads to unnecessary fights, hurt feelings,
   and damaged trust; worse, it can drive people away from the community.
-* If someone takes issue with something you said or did, resist the urge to be
+- If someone takes issue with something you said or did, resist the urge to be
   defensive. Stop doing what it was they complained about and apologize. Even
   if you feel you were misinterpreted or unfairly accused, chances are good
   there was something you could have communicated better.
 
 ## Unacceptable behavior
 
-* Insulting, demeaning, or harassing anyone. We interpret "harassment" as
+- Insulting, demeaning, or harassing anyone. We interpret "harassment" as
   including the definition in the
   [Citizen Code of Conduct](http://citizencodeofconduct.org/); if you have any
   lack of clarity about what might be included in that concept, please read
   their definition. In particular, we do not tolerate behavior that excludes
   people in socially marginalized groups.
-* Private harassment.
-* Spamming, trolling, flaming, baiting, or other attention-stealing behavior.
+- Private harassment.
+- Spamming, trolling, flaming, baiting, or other attention-stealing behavior.
 
 ## Enforcement
 
