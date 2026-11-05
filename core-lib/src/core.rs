@@ -60,7 +60,7 @@ impl XiCore {
     /// Panics if core has not yet received the `client_started` message.
     pub fn inner(&self) -> MutexGuard<CoreState> {
         match self {
-            XiCore::Running(ref inner) => inner.lock().unwrap(),
+            XiCore::Running(inner) => inner.lock().unwrap(),
             XiCore::Waiting => panic!(
                 "core does not start until client_started \
                  RPC is received"
@@ -71,7 +71,7 @@ impl XiCore {
     /// Returns a new reference to the core state, if core is running.
     fn weak_self(&self) -> Option<WeakXiCore> {
         match self {
-            XiCore::Running(ref inner) => Some(WeakXiCore(Arc::downgrade(inner))),
+            XiCore::Running(inner) => Some(WeakXiCore(Arc::downgrade(inner))),
             XiCore::Waiting => None,
         }
     }
@@ -175,11 +175,11 @@ impl Handler for WeakXiCore {
 
     fn handle_request(&mut self, ctx: &RpcCtx, rpc: Self::Request) -> Result<Value, RemoteError> {
         let PluginCommand { view_id, plugin_id, cmd } = rpc;
-        if let Some(core) = self.upgrade() {
+        match self.upgrade() { Some(core) => {
             core.inner().plugin_request(ctx, view_id, plugin_id, cmd)
-        } else {
+        } _ => {
             Err(RemoteError::custom(0, "core is missing", None))
-        }
+        }}
     }
 }
 

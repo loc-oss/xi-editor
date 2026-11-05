@@ -248,7 +248,7 @@ mod tests {
     use crate::interval::Interval;
     use crate::tree::{Cursor, Node};
 
-    fn gen(n: usize) -> Node<BreaksInfo> {
+    fn r#gen(n: usize) -> Node<BreaksInfo> {
         let mut node = Node::default();
         let mut b = BreakBuilder::new();
         b.add_break(10);
@@ -266,13 +266,13 @@ mod tests {
 
     #[test]
     fn empty() {
-        let n = gen(0);
+        let n = r#gen(0);
         assert_eq!(0, n.len());
     }
 
     #[test]
     fn fromleaf() {
-        let testnode = gen(1);
+        let testnode = r#gen(1);
         assert_eq!(10, testnode.len());
     }
 
@@ -296,8 +296,8 @@ mod tests {
 
     #[test]
     fn concat() {
-        let left = gen(1);
-        let right = gen(1);
+        let left = r#gen(1);
+        let right = r#gen(1);
         let node = Node::concat(left, right);
         assert_eq!(node.len(), 20);
         let mut c = Cursor::new(&node, 0);
@@ -308,7 +308,7 @@ mod tests {
 
     #[test]
     fn larger() {
-        let node = gen(100);
+        let node = r#gen(100);
         assert_eq!(node.len(), 1000);
     }
 
@@ -316,7 +316,7 @@ mod tests {
     fn default_metric_test() {
         use super::BreaksBaseMetric;
 
-        let breaks = gen(10);
+        let breaks = r#gen(10);
         assert_eq!(
             breaks.convert_metrics::<BreaksBaseMetric, BreaksMetric>(5),
             breaks.count::<BreaksMetric>(5)

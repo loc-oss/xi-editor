@@ -27,7 +27,7 @@ use super::{Plugin, View};
 
 /// Convenience for unwrapping a view, when handling RPC notifications.
 macro_rules! bail {
-    ($opt:expr, $method:expr, $pid:expr, $view:expr) => {
+    ($opt:expr_2021, $method:expr_2021, $pid:expr_2021, $view:expr_2021) => {
         match $opt {
             Some(t) => t,
             None => {
@@ -41,7 +41,7 @@ macro_rules! bail {
 /// Convenience for unwrapping a view when handling RPC requests.
 /// Prints an error if the view is missing, and returns an appropriate error.
 macro_rules! bail_err {
-    ($opt:expr, $method:expr, $pid:expr, $view:expr) => {
+    ($opt:expr_2021, $method:expr_2021, $pid:expr_2021, $view:expr_2021) => {
         match $opt {
             Some(t) => t,
             None => {
