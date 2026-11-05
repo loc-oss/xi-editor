@@ -8,4 +8,4 @@ authors = [
 ]
 repository = "https://github.com/loc-oss/xi-editor"
 description = "Unicode utilities useful for text editing, including a line breaking iterator."
-edition = '2018'
+edition = '2021'

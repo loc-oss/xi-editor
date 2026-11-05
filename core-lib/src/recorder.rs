@@ -435,7 +435,10 @@ mod tests {
         recorder.record(BufferEvent::Redo.into());
         recorder.record(BufferEvent::Undo.into());
         recorder.toggle_recording(Some(recording_name.clone()));
-        assert_eq!(recorder.recordings.get(&recording_name).unwrap().events, vec![]);
+        assert_eq!(
+            recorder.recordings.get(&recording_name).unwrap().events,
+            Vec::<EventDomain>::new()
+        );
     }
 
     #[test]

@@ -1170,7 +1170,7 @@ mod tests {
 
         // delete everything?
         lines.patchup_tasks(0..200, 0);
-        assert_eq!(make_ranges(&lines.work), vec![]);
+        assert_eq!(make_ranges(&lines.work), Vec::<Range<usize>>::new());
 
         lines.add_task(0..110);
         lines.patchup_tasks(0..30, 0);

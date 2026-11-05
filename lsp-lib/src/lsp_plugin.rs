@@ -219,6 +219,7 @@ impl LspPlugin {
                 }
             })
             .and_then(|language_server_identifier| {
+                let _ = &self;
                 let contains =
                     self.language_server_clients.contains_key(&language_server_identifier);
 

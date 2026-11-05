@@ -8,7 +8,7 @@ license = "Apache-2.0"
 name = "xi-rope"
 repository = "https://github.com/loc-oss/xi-editor"
 version = "0.3.0"
-edition = '2018'
+edition = '2021'
 
 [dependencies]
 bytecount = "0.6"
