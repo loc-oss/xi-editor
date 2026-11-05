@@ -357,6 +357,7 @@ mod tests {
     }
 
     // from https://github.com/passcod/notify/blob/master/tests/utils/mod.rs
+    #[allow(dead_code)] // helper trait mirrors upstream; some methods are unused here
     pub trait TestHelpers {
         /// Return path relative to the TempDir. Directory separator must
         /// be a forward slash, and will be converted to the platform's

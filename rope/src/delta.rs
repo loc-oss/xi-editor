@@ -331,12 +331,12 @@ impl<N: NodeInfo> Delta<N> {
     }
 
     /// Iterates over all the inserts of the delta.
-    pub fn iter_inserts(&self) -> InsertsIter<N> {
+    pub fn iter_inserts(&self) -> InsertsIter<'_, N> {
         InsertsIter { pos: 0, last_end: 0, els_iter: self.els.iter() }
     }
 
     /// Iterates over all the deletions of the delta.
-    pub fn iter_deletions(&self) -> DeletionsIter<N> {
+    pub fn iter_deletions(&self) -> DeletionsIter<'_, N> {
         DeletionsIter { pos: 0, last_end: 0, base_len: self.base_len, els_iter: self.els.iter() }
     }
 }

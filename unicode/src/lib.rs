@@ -125,7 +125,7 @@ impl<'a> Iterator for LineBreakIterator<'a> {
 
 impl<'a> LineBreakIterator<'a> {
     /// Create a new iterator for the given string slice.
-    pub fn new(s: &str) -> LineBreakIterator {
+    pub fn new(s: &str) -> LineBreakIterator<'_> {
         if s.is_empty() {
             LineBreakIterator {
                 s,

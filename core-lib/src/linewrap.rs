@@ -449,7 +449,7 @@ impl Lines {
     #[cfg(test)]
     fn rewrap_all(&mut self, text: &Rope, client: &Client, width_cache: &mut WidthCache) {
         if !self.is_converged() {
-            self.do_wrap_task(text, width_cache, client, 0..10, Some(usize::max_value()));
+            self.do_wrap_task(text, width_cache, client, 0..10, Some(usize::MAX));
         }
     }
 }

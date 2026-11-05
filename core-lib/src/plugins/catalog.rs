@@ -33,6 +33,7 @@ pub struct PluginCatalog {
 
 /// Errors that can occur while trying to load a plugin.
 #[derive(Debug)]
+#[allow(dead_code)] // payloads are kept for error matching, even if currently unread
 pub enum PluginLoadError {
     Io(io::Error),
     /// Malformed manifest

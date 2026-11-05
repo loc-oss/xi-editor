@@ -69,7 +69,7 @@ pub fn find(
     pat: &str,
     regex: Option<&Regex>,
 ) -> Option<usize> {
-    match find_progress(cursor, lines, cm, pat, usize::max_value(), regex) {
+    match find_progress(cursor, lines, cm, pat, usize::MAX, regex) {
         FindResult::Found(start) => Some(start),
         FindResult::NotFound => None,
         FindResult::TryAgain => unreachable!("find_progress got stuck"),

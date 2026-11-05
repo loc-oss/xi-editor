@@ -34,3 +34,7 @@ tempdir = "^0.3.4"
 
 [features]
 default = ["notify"]
+# Legacy Fuchsia "ledger" synchronization hooks. The optional code paths
+# require out-of-tree fuchsia crates, so the feature exists only to keep
+# the `cfg` blocks well-formed; it is not enabled by default.
+ledger = []
