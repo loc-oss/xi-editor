@@ -5,7 +5,7 @@ license = "Apache-2.0"
 authors = ["Raph Levien <raph@google.com>", "LOC-OSS Community"]
 repository = "https://github.com/loc-oss/xi-editor"
 description = "The library base for implementing xi-editor plugins."
-edition = '2021'
+edition = '2024'
 
 [dependencies]
 serde = "1.0"

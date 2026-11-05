@@ -466,7 +466,9 @@ mod tests {
     #[cfg(unix)]
     fn test_crash_repro() {
         let (tx, _rx) = unbounded();
-        let path = PathBuf::from("/bin/cat");
+        // Use the test binary itself: any existing file works, and hard-coding
+        // /bin/cat breaks on systems that don't have it (e.g. NixOS).
+        let path = std::env::current_exe().unwrap();
         let mut w = watcher(tx, Duration::from_secs(1)).unwrap();
         w.watch(&path, RecursiveMode::NonRecursive).unwrap();
         sleep(20);
