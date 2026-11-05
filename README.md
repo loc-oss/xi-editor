@@ -3,14 +3,22 @@
 [![CI](https://github.com/loc-oss/xi-editor/actions/workflows/ci.yml/badge.svg)](https://github.com/loc-oss/xi-editor/actions/workflows/ci.yml)
 
 > **Note:** This repository contains the core of the xi-editor project, actively maintained by [LOC](https://github.com/loc-oss).
-> The original xi-editor project was discontinued by its creators. We are modernizing the core and building a new ecosystem around it.
+> The original xi-editor project was discontinued by its creators. We have modernized the core and are building a new ecosystem around it.
 >
 > To see how we use this core in production, check out:
 >
 > - **[xi-client](https://github.com/loc-oss/xi-client)** — The SDK for interacting with the core.
-> - **[Lumen](https://github.com/loc-oss/lumen)** — Our native frontend built on top of `xi-client`.
 
 The xi-editor core is a high-performance text editing backend written in Rust. It operates as a standalone JSON-RPC server over pipes and is designed to be completely UI-agnostic. It handles file buffers and all potentially expensive editing operations, while leaving the actual UI rendering to whatever frontend connects to it.
+
+## Project Status: Modernized
+
+This fork has recently undergone a major modernization effort to ensure it is ready for the future:
+
+- **Rust 2024 Edition:** The entire workspace has been migrated to the latest Rust edition.
+- **Zero Warnings:** The codebase compiles with absolutely zero compiler warnings and passes strict CI checks.
+- **Clean Workspace:** Legacy, unstable nightly-only benchmarks and obsolete code have been removed.
+- **Minimum Supported Rust Version (MSRV):** `1.85.0`
 
 ## Goals
 
@@ -21,6 +29,10 @@ The xi-editor core is a high-performance text editing backend written in Rust. I
 
 ## Getting started
 
+### Prerequisites
+
+- **Rust:** Version `1.85.0` or newer (Rust 2024 Edition). We recommend installing via [rustup](https://www.rustup.rs).
+
 ### Building the core
 
 Xi-editor targets 'recent stable Rust'. We recommend installing via [rustup](https://www.rustup.rs).
@@ -28,10 +40,18 @@ Xi-editor targets 'recent stable Rust'. We recommend installing via [rustup](htt
 To build the xi-editor core from the root directory of this repo:
 
 ```bash
-cargo build
+cargo build --release
 ```
 
 Once built, the `xi-core` binary acts as a JSON-RPC server. You can connect to it using any frontend or client that implements the protocol.
+
+### Running tests
+
+We take reliability seriously. To run the test suite:
+
+```bash
+cargo test --workspace
+```
 
 ## Architecture and Design decisions
 
@@ -55,5 +75,4 @@ This project is licensed under the Apache 2 [license](LICENSE).
 
 ## Contributions
 
-We gladly accept contributions via GitHub pull requests. Please see
-[CONTRIBUTING.md](.github/CONTRIBUTING.md) for more details.
+We gladly accept contributions via GitHub pull requests. Please see [CONTRIBUTING.md](.github/CONTRIBUTING.md) for more details.
